@@ -12,9 +12,9 @@ import requests
 app = Flask(__name__)
 
 # load the data
-df = pd.read_csv('preprocessed_data.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/kapilthakre/Recommendation-System/master/Flask%20Heroku%20Deployment/preprocessed_data.csv')
 # load cache data
-df_cache = pd.read_csv('cache_data.csv')
+df_cache = pd.read_csv('https://raw.githubusercontent.com/kapilthakre/Recommendation-System/master/Flask%20Heroku%20Deployment/cache_data.csv')
 # storing movie title into list
 movie_list = list(df['movie_title'])
 
