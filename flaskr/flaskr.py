@@ -173,7 +173,7 @@ def getvalues_and_recommend():
     collab_2552_df = pd.DataFrame({'recommendations':collab_rankedrecs_2552.index,'collab_filter_predicted_ratings':collab_rankedrecs_2552})
 
     #reading in the previously prepped df meant for content-based filtering here for content-based filtering recommendations..
-    content_f = pd.read_csv('content_based_df_nouser.csv')
+    content_f = pd.read_csv('https://raw.githubusercontent.com/jasonchia89/GA_Capstone_Flask/master/flaskr/content_based_df_nouser.csv')
 
     #merging userid2552's info with the df meant for content-based filtering so that rcontent-based filtering can make recommendations via rating predictions for userid 2552 later on...
     content_2552 = pd.merge(content_f,user_item_2552,how='left',on='shops')
