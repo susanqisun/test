@@ -1,1 +1,1 @@
-web: gunicorn recommendation_api:app
+web: sh setup.sh && streamlit run app.py
