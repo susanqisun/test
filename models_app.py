@@ -50,7 +50,7 @@ def get_wrecked(target_id, target_state=None,target_city=None,target_zipcode=Non
 
 
     # ### Get coordinates for zip or city
-    with open('https://raw.githubusercontent.com/gseemann/climb_recommender/master/data/us-zip-code-latitude-and-longitude.json') as f:
+    with open('data/us-zip-code-latitude-and-longitude.json') as f:
       coord_dict = json.load(f)
 
 
