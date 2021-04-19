@@ -3,7 +3,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import pickle
 
-netflix_titles_df = pd.read_csv('netflix_titles.csv')
+netflix_titles_df = pd.read_csv('https://raw.githubusercontent.com/MAbdElRaouf/Content-based-Recommendation-Engine/master/netflix_titles.csv')
 
 netflix_titles_df.drop(netflix_titles_df.columns[[0,1,5,6,7,9]], axis=1, inplace=True)
 
