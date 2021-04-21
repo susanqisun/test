@@ -4,7 +4,7 @@ from ast import literal_eval
 import warnings; warnings.simplefilter('ignore')
 
 # movie data
-df_movie = pd.read_csv('/Users/yangyang/Desktop/Desktop_Qi/capstone/data/movies_metadata.csv')
+df_movie = pd.read_csv('https://raw.githubusercontent.com/susanqisun/test/main/movies_metadata.csv')
 
 df_movie['genres'] = df_movie['genres'].fillna('[]').apply(literal_eval).apply(lambda x: [i[
     'name'] for i in x] if isinstance(x, list) else [])
