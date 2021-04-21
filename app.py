@@ -23,7 +23,7 @@ if test:
 		#st.success('Searching for similar climbs in that area')
 		#call function and pass id, city, state, zip and radius
 		#fxn returns df of 10 most similar climbs in search range
-		st.dataframe(models_app.get_recommendations(title=movie_title))
+		st.dataframe(models_app.recommendations(title=movie_title))
 		st.success('Finished')
 		st.balloons()
 		#RUN recommender
