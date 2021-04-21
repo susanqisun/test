@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-def recommendations (title):
+def recommendations02 (title):
     smd = pd.read_csv('https://raw.githubusercontent.com/susanqisun/test/main/movie_new.csv')
     tf = TfidfVectorizer(analyzer='word',ngram_range=(1, 2),min_df=0, stop_words='english')
     tfidf_matrix = tf.fit_transform(smd['description'].values.astype('U'))
