@@ -7,32 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 def recommendations (title):
-    df_movie = pd.read_csv('https://raw.githubusercontent.com/susanqisun/test/main/movies_metadata.csv')
-    df_movie['genres'] = df_movie['genres'].fillna('[]').apply(literal_eval).apply(lambda x: [i['name'] for i in x] if isinstance(x, list) else [])
-    df_movie['year'] = pd.to_datetime(df_movie['release_date'], errors='coerce').apply(lambda x: str(x).split('-')[0] if x != np.nan else np.nan)
-    md = df_movie.copy()
-    s = md.apply(lambda x: pd.Series(x['genres']),axis=1).stack().reset_index(level=1, drop=True)
-    s.name = 'genre'
-    gen_md = md.drop('genres', axis=1).join(s)
-    links_small = pd.read_csv('https://raw.githubusercontent.com/susanqisun/DAV6300/main/data/links_small.csv')
-    links_small = links_small[links_small['tmdbId'].notnull()]['tmdbId'].astype('int')
-    
-    def convert_int(x):
-        try:
-            return int(x)
-        except:
-            return np.nan
-        
-    md['id'] = md['id'].apply(convert_int)
-    md[md['id'].isnull()]    
-    md = md.drop([19730, 29503, 35587])
-    md['id'] = md['id'].astype('int')
-    smd = md[md['id'].isin(links_small)]
-
-    smd['tagline'] = smd['tagline'].fillna('')
-    smd['description'] = smd['overview'] + smd['tagline']
-    smd['description'] = smd['description'].fillna('')
-    
+    smd = pd.read_csv('https://raw.githubusercontent.com/susanqisun/test/main/movies_new.csv')
     tf = TfidfVectorizer(analyzer='word',ngram_range=(1, 2),min_df=0, stop_words='english')
     tfidf_matrix = tf.fit_transform(smd['description'])
     
