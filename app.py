@@ -21,7 +21,7 @@ components.html(
 #ask user for input
 #climb_id = st.text_input('Enter movie ID:')
 
-df = pd.read_csv('/Users/yangyang/Desktop/Desktop_Qi/capstone/data/movie_list_final.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/susanqisun/test/main/movie_list_final.csv')
 
 movie_title = st.selectbox(
     'Please scroll down to see the list of movies and Select a movie you like to get recommendations.',
